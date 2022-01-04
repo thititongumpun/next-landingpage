@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import {useEffect} from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,13 +17,36 @@ import menu3 from '../public/images/menu-3.png';
 import menu4 from '../public/images/menu-4.png';
 import menu5 from '../public/images/menu-5.png';
 import menu6 from '../public/images/menu-6.png';
+import product1 from '../public/images/product-1.png'
+import product2 from '../public/images/product-2.png'
+import product3 from '../public/images/product-3.png'
 import { 
     faSearch, 
     faShoppingCart,
-    faBars
+    faBars,
+    faTimes,
+    faStar,
+    faStarHalfAlt,
+    faHeart,
+    faEye
 } from '@fortawesome/free-solid-svg-icons'
 
 const Home: NextPage = () => {
+    
+    const handleScroll = () => {}
+    useEffect(() => {
+        // navbar?.classList.remove('active');
+        let navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.onscroll = () => {
+                navbar?.classList.remove('active')
+            }
+        }
+    }, []);
+    
+
+
   return (
     <>
       <header className={styles.header}>
@@ -30,7 +54,7 @@ const Home: NextPage = () => {
             <Image src={logo} alt="" />
         </a>
 
-        <nav className={styles.navbar}>
+        <nav className={styles.navbar} id='navbar'>
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#menu">Menu</a>
@@ -57,35 +81,35 @@ const Home: NextPage = () => {
 
         <div className={styles.cartItemsContainer}>
           <div className={styles.cartItem}>
-              <span className="fas fa-times"></span>
+              <span><FontAwesomeIcon icon={faTimes} /></span>
               <Image src={cartItem1} alt="" />
               <div className={styles.content}>
                   <h3>cart item 01</h3>
-                  <div className="price">$15.99/-</div>
+                  <div className={styles.price}>$15.99/-</div>
               </div>
           </div>
-          <div className="cart-item">
-              <span className="fas fa-times"></span>
+          <div className={styles.cartItem}>
+          <span><FontAwesomeIcon icon={faTimes} /></span>
               <Image src={cartItem2} alt="" />
               <div className={styles.content}>
                   <h3>cart item 02</h3>
-                  <div className="price">$15.99/-</div>
+                  <div className={styles.price}>$15.99/-</div>
               </div>
           </div>
-          <div className="cart-item">
-              <span className="fas fa-times"></span>
+          <div className={styles.cartItem}>
+          <span><FontAwesomeIcon icon={faTimes} /></span>
               <Image src={cartItem3} alt="" />
               <div className={styles.content}>
                   <h3>cart item 03</h3>
-                  <div className="price">$15.99/-</div>
+                  <div className={styles.price}>$15.99/-</div>
               </div>
           </div>
-          <div className="cart-item">
-              <span className="fas fa-times"></span>
+          <div className={styles.cartItem}>
+          <span><FontAwesomeIcon icon={faTimes} /></span>
               <Image src={cartItem4} alt="" />
               <div className={styles.content}>
                   <h3>cart item 04</h3>
-                  <div className="price">$15.99/-</div>
+                  <div className={styles.price}>$15.99/-</div>
               </div>
           </div>
           <a href="#" className={styles.btn}>checkout now</a>
@@ -157,6 +181,75 @@ const Home: NextPage = () => {
               </div>
           </div>
       </section>
+
+    <section className={styles.products} id="products">
+        <h1 className={styles.heading}> our <span>products</span> </h1>
+        <div className={styles.boxContainer}>
+            <div className={styles.box}>
+                <div className={styles.icons}>
+                    <a href="#"><FontAwesomeIcon icon={faShoppingCart} color='#fff' /></a>
+                    <a href="#"><FontAwesomeIcon icon={faHeart} color='#fff' /></a>
+                    <a href="#"><FontAwesomeIcon icon={faEye} color='#fff' /></a>
+                </div>
+                <div className={styles.image}>
+                    <Image src={product1} alt="" />
+                </div>
+                <div className={styles.content}>
+                    <h3>fresh coffee</h3>
+                    <div className={styles.stars}>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i> <FontAwesomeIcon icon={faStarHalfAlt} color='#fff' /></i>
+                    </div>
+                    <div className={styles.price}>$15.99 <span>$20.99</span></div>
+                </div>
+            </div>
+            <div className={styles.box}>
+                <div className={styles.icons}>
+                    <a href="#"><FontAwesomeIcon icon={faShoppingCart} color='#fff' /></a>
+                    <a href="#"><FontAwesomeIcon icon={faHeart} color='#fff' /></a>
+                    <a href="#"><FontAwesomeIcon icon={faEye} color='#fff' /></a>
+                </div>
+                <div className={styles.image}>
+                    <Image src={product2} alt="" />
+                </div>
+                <div className={styles.content}>
+                    <h3>fresh coffee</h3>
+                    <div className={styles.stars}>
+                    <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i> <FontAwesomeIcon icon={faStarHalfAlt} color='#fff' /></i>
+                    </div>
+                    <div className={styles.price}>$15.99 <span>$20.99</span></div>
+                </div>
+            </div>
+            <div className={styles.box}>
+                <div className={styles.icons}>
+                <a href="#"><FontAwesomeIcon icon={faShoppingCart} color='#fff' /></a>
+                    <a href="#"><FontAwesomeIcon icon={faHeart} color='#fff' /></a>
+                    <a href="#"><FontAwesomeIcon icon={faEye} color='#fff' /></a>
+                </div>
+                <div className={styles.image}>
+                    <Image src={product3} alt="" />
+                </div>
+                <div className={styles.content}>
+                    <h3>fresh coffee</h3>
+                    <div className={styles.stars}>
+                    <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i><FontAwesomeIcon icon={faStar} color='#fff' /></i>
+                        <i> <FontAwesomeIcon icon={faStarHalfAlt} color='#fff' /></i>
+                    </div>
+                    <div className={styles.price}>$15.99 <span>$20.99</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     </>
     
