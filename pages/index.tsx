@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from '../styles/Home.module.css'
 
 import logo from '../public/images/logo.png';
@@ -15,6 +16,11 @@ import menu3 from '../public/images/menu-3.png';
 import menu4 from '../public/images/menu-4.png';
 import menu5 from '../public/images/menu-5.png';
 import menu6 from '../public/images/menu-6.png';
+import { 
+    faSearch, 
+    faShoppingCart,
+    faBars
+} from '@fortawesome/free-solid-svg-icons'
 
 const Home: NextPage = () => {
   return (
@@ -25,25 +31,29 @@ const Home: NextPage = () => {
         </a>
 
         <nav className={styles.navbar}>
-            <a href="#home">home</a>
-            <a href="#about">about</a>
-            <a href="#menu">menu</a>
-            <a href="#products">products</a>
-            <a href="#review">review</a>
-            <a href="#contact">contact</a>
-            <a href="#blogs">blogs</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#products">Products</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
+            <a href="#blogs">Blogs</a>
         </nav>
 
-        <div className={styles.icons}>
-          <div className="fas fa-search" id="search-btn"></div>
+        <div className={styles.iconsNavbar}>
+          {/* <div className="fas fa-search" id="search-btn"></div>
           <div className="fas fa-shopping-cart" id="cart-btn"></div>
-          <div className="fas fa-bars" id="menu-btn"></div>
+          <div className="fas fa-bars" id="menu-btn"></div> */}
+            {/* <div id ='search-btn'> */}
+                <FontAwesomeIcon icon={faSearch} />
+                <FontAwesomeIcon icon={faShoppingCart} color='#fff' />
+                <FontAwesomeIcon icon={faBars} color='#fff' />
         </div>
 
-        {/* <div className={styles.searchForm}>
+        <div className={styles.searchForm}>
           <input type="search" id="search-box" placeholder="search here..." />
-          <label htmlFor="search-box" className="fas fa-search"></label>
-        </div> */}
+          <label htmlFor="search-box"> <FontAwesomeIcon icon={faSearch} /></label>
+        </div>
 
         <div className={styles.cartItemsContainer}>
           <div className={styles.cartItem}>

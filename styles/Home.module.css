@@ -60,6 +60,14 @@
     margin-left: 2rem;
 }
 
+.iconsNavbar {
+    color:#fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 3rem;
+}
+
+
 .header .icons div:hover{
     color:var(--main-color);
 }
